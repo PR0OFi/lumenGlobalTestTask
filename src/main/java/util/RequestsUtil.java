@@ -3,6 +3,7 @@ package util;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.tomakehurst.wiremock.WireMockServer;
 import exceptions.CustomRuntimeException;
+import lombok.RequiredArgsConstructor;
 import model.TestConstants;
 import model.transaction.TransactionApi;
 import model.transaction.TransactionResponseApi;
@@ -10,7 +11,6 @@ import model.wallet.ResponseApi;
 import model.wallet.WalletApi;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
@@ -27,6 +27,7 @@ import static java.lang.String.format;
  * This class provides actions to interact with BlockIo through url
  */
 @Component
+@RequiredArgsConstructor
 public class RequestsUtil {
     private final Log logger = LogFactory.getLog(this.getClass());
 
@@ -35,13 +36,6 @@ public class RequestsUtil {
     private final PrepareTransactionOKStub prepareTransactionOKStub;
 
     private final ObjectMapper objectMapper;
-
-    @Autowired
-    public RequestsUtil(final RestTemplate restTemplate, final PrepareTransactionOKStub prepareTransactionOKStub, final ObjectMapper objectMapper) {
-        this.restTemplate = restTemplate;
-        this.prepareTransactionOKStub = prepareTransactionOKStub;
-        this.objectMapper = objectMapper;
-    }
 
     /**
      * Method to provide a couple of actions to make a transaction. Includes prepare and create a Transaction
