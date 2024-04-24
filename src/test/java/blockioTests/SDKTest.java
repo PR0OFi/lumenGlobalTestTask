@@ -27,14 +27,14 @@ import static java.lang.String.format;
  * simulate a real behavior with BlockIo service
  */
 public class SDKTest {
-    final BlockIo sdk = new BlockIo("2701-0827-6937-ec93", "mnGz53En7oqVKeT4");
+    private final BlockIo sdk = new BlockIo("2701-0827-6937-ec93", "mnGz53En7oqVKeT4");
 
-    final String toWalletAddress = "2N9zGCfYdRVaZW7LGwVeJVyuuhB5KoEfe7N";
-    final BigDecimal amount = new BigDecimal("0.00001");
+    private final String toWalletAddress = "2N9zGCfYdRVaZW7LGwVeJVyuuhB5KoEfe7N";
+    private final BigDecimal amount = new BigDecimal("0.00001");
 
-    final ObjectMapper mapper = new ObjectMapper();
+    private final ObjectMapper mapper = new ObjectMapper();
 
-    JSONObject preparedTransaction;
+    private JSONObject preparedTransaction;
 
     public SDKTest() throws Exception {
     }
